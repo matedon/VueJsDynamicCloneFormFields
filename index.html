@@ -4,9 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"
-            integrity="sha256-sawP1sLkcaA4YQJQWAtjahamgG6brGmaIJWRhYwDfno=" crossorigin="anonymous"></script>
-    <!-- Latest compiled and minified CSS -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
@@ -15,7 +13,7 @@
 <main class="container">
     <form id="app" data-apartments='[{ "price": "23000", "rooms": "12" }, { "price": "42000", "rooms": "32" }]'>
         <h1>
-            Dynamic gapartment forms
+            Dynamic apartment forms
         </h1>
         <hr>
         <div class="row">
@@ -38,13 +36,17 @@
                 </div>
                 <div class="form-group col-xs-5">
                     <label>Price (HUF)</label>
-                    <input v-model="apartment.price" type="number"
-                           name="apartments[][price]" class="form-control" placeholder="Price">
+                    <input v-model="apartment.price"
+                           :name="'apartments[' + index + '][price]'"
+                           type="number"
+                           class="form-control" placeholder="Price">
                 </div>
                 <div class="form-group col-xs-5">
                     <label>Rooms (PCS)</label>
-                    <input v-model="apartment.rooms" type="number"
-                           name="apartments[][rooms]" class="form-control" placeholder="Rooms">
+                    <input v-model="apartment.rooms"
+                           :name="'apartments[' + index + '][rooms]'"
+                           type="number"
+                           class="form-control" placeholder="Rooms">
                 </div>
             </div>
         </div>
@@ -62,6 +64,9 @@
         <pre>{{ $data }}</pre>
     </form>
 </main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"
+        integrity="sha256-sawP1sLkcaA4YQJQWAtjahamgG6brGmaIJWRhYwDfno=" crossorigin="anonymous"></script>
 
 <script src="index.js"></script>
 
